@@ -1,0 +1,44 @@
+<div class="col-md-11">
+    <h1>Employees List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th colspan="6"></th>
+            <th class="text-primary">
+                <app-action-button (eventName)="btnEVent($event)" [btnName]="'Add'" [btnClass]="'btn-primary'"></app-action-button>
+            </th>
+        </tr>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Role</th>
+        <th scope="col">Address</th>
+        <th scope="col">Addition</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of employeesList; let i= index;">
+        <th scope="row">{{row.id}}</th>
+        <td>
+            <div appBasicHighlight>
+                {{row.name}}
+            </div>
+        </td>
+        <td>{{row.email}}</td>
+        <td>{{row.role}}</td>
+        <td>
+            <app-address  [address]="row.addresses"></app-address>
+        </td>
+        <td>
+            <p>Addition of {{row.number1}} and {{row.number2 }}  = {{row.number1 | addition : row.number2}}</p>
+        </td>
+        <td>
+            <app-action-button (eventName)="btnEVent($event)" [data]="row" [btnName] ="'Delete'"[btnClass]="'btn-danger'"></app-action-button>
+        </td>
+      </tr>
+    </tbody>
+    
+  </table>
+  </div>

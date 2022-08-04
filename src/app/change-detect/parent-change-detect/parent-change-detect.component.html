@@ -1,0 +1,15 @@
+
+<div class="container">
+	<h3> Parent component </h3>
+	Name: <input type='text' [(ngModel)]="person.name"><br/>
+    <div class="mt-3">
+    Age:
+	<button class="btn btn-primary" (click)="person.age = person.age+1">+</button> {{ person.age }}
+	<button class="btn btn-danger" (click)="person.age = person.age-1">-</button>
+    </div>
+	<br />
+	<button class="btn btn-primary" (click)="reassign()">Re-Assign</button>
+	<br>
+	<pre>{{ person | json}}</pre>
+	<app-child [person]="person"></app-child>
+</div>
